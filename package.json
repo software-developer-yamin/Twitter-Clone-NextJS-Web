@@ -1,0 +1,37 @@
+{
+	"name": "nextjs",
+	"version": "5.0.0",
+	"private": true,
+	"scripts": {
+		"dev": "next dev",
+		"build": "next build",
+		"export": "next export",
+		"start": "next start",
+		"lint": "next lint",
+		"post-update": "echo \"codesandbox preview only, need an update\" && yarn upgrade --latest"
+	},
+	"dependencies": {
+		"@emotion/cache": "latest",
+		"@emotion/react": "latest",
+		"@emotion/server": "latest",
+		"@emotion/styled": "latest",
+		"@mui/icons-material": "latest",
+		"@mui/material": "latest",
+		"@next-auth/firebase-adapter": "^0.1.2-pr.183-76202b42.8",
+		"emoji-mart": "^3.0.1",
+		"firebase": "^9.6.10",
+		"moment": "^2.29.2",
+		"next": "latest",
+		"next-auth": "^4.3.1",
+		"prop-types": "latest",
+		"react": "latest",
+		"react-dom": "latest",
+		"react-moment": "^1.1.2",
+		"recoil": "^0.7.1",
+		"sharp": "^0.30.3"
+	},
+	"devDependencies": {
+		"eslint": "latest",
+		"eslint-config-next": "latest"
+	}
+}
