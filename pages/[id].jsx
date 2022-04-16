@@ -18,15 +18,17 @@ import Post from "../components/FeedPost";
 import ModalPage from "../components/ModalPage";
 import Sidebar from "../components/Sidebar";
 import Widgets from "../components/Widgets";
+import { followResults, trendingResults } from "../data";
 import { db } from "../firebase";
 
-export default function PostPage({ trendingResults, followResults, providers }) {
+export default function PostPage({ providers }) {
      const { data: session } = useSession();
      const [post, setPost] = useState();
      const [isOpen, setIsOpen] = useRecoilState(modalState);
      const [comments, setComments] = useState([]);
      const router = useRouter();
      const { id } = router.query;
+
 
      useEffect(
           () =>
@@ -107,12 +109,6 @@ export default function PostPage({ trendingResults, followResults, providers }) 
 };
 
 export async function getServerSideProps(context) {
-     const trendingResults = await fetch("https://jsonkeeper.com/b/NKEV").then(
-          (res) => res.json()
-     );
-     const followResults = await fetch("https://jsonkeeper.com/b/WWMJ").then(
-          (res) => res.json()
-     );
      const providers = await getProviders();
      const session = await getSession(context);
 

@@ -8,10 +8,10 @@ import Login from "../components/Login";
 import ModalPage from "../components/ModalPage";
 import Sidebar from "../components/Sidebar";
 import Widgets from "../components/Widgets";
+import { followResults, trendingResults } from "../data";
 
 
-
-export default function Home({ trendingResults, followResults, providers }) {
+export default function Home({ providers }) {
      const [isOpen, setIsOpen] = useRecoilState(modalState);
      const { data: session } = useSession();
 
@@ -41,14 +41,6 @@ export default function Home({ trendingResults, followResults, providers }) {
 
 
 export async function getServerSideProps(context) {
-     const trendingResults = await fetch("https://jsonkeeper.com/b/NKEV").then(
-          (res) => res.json()
-     );
-     console.log('trendingResults', JSON.stringify(trendingResults));
-     const followResults = await fetch("https://jsonkeeper.com/b/WWMJ").then(
-          (res) => res.json()
-     );
-
      const providers = await getProviders();
      const session = await getSession(context);
 
